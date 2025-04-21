@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>What Is Emma Doing?</h1>
+            <p>A website to display portfolio projects and code as Emma learns programing.</p>
+            <p>You can pull code into your terminal to see how it runs.</p>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="#cs50">CS50 Projects</a>
+                <a href="#ip">Independent Projects</a>
+                <a href="#cc">Codecademy Projects</a>
+
+                <a href="contact.html">Contact</a>
+            </nav>
+        </header>
+        <main>
+        <div class="section" id="cs50">
+            <h2>CS50</h2>
+            <div class="description">
+                <p>CS50 is an open source class by Harvard. The course is a language agnostic introductory course to computer 
+                    sciences. This class covers C, Python, SQL, HTML, CSS, and Flask over a 10 week course. The course does ask that students use the CS50 library, the CS50 Visual Studios portal, and specific formatting including moving all curly braces to their own lines.</p>
+            </div>
+        </div>   
+            <div class="section" id="gameContainer">
+                <h3>Week 0: Scratch</h3>
+                <div class="week" id="game">
+                    <p>This project is built on the sratch platform and teaches how to think like a computer. It visualizes commands 
+                        and nesting and allows new programers to create games and simple flash programs.</p>
+                        <br>
+                    <p><strong>The Game Concept:</strong> This game was designed for CS50 and is the first game I learned to code. It is themed after 
+                        Pierogi Fest in Whiting, IN and is a little love note for their 30th Anniversary! I custom designed the falling
+                        objects to mimic signs at Pierogi Fest!</p>
+                    <p><strong>Here is how to play:</strong></p>
+                    <div>
+                        <ul id="playRules">
+                            <li>Use the left and right arrow buttons to move your Buscia (Grandma) to catch the falling 
+                                pierogies while avoiding the clothes! </li>
+                            <li>You gain points for pierogis you catch on the plate and loose points for the socks and uderwear
+                                 while the aprons neither add or subtract points. </li>
+                            <li>Click the green flag to start or restart the game and the red octagon to stop or pause the game. </li>
+                            <li>Music will automatically play when the game starts. urn off your sound or mute the page to stop the music.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="week" id="gamebox" style="text-align: center;">
+                    <div>
+                        <iframe id="iframe" src="https://scratch.mit.edu/projects/1050127854/embed"  allowtransparency="true" width="535" height="452" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="section">
+                <h3>Week 2-5: C</h3>
+                <div class="week">
+                    <h4>Hello, World</h4>
+                    <p>The clasic first assignment for students learnign to code. Log the wods Hello,World to the terminal window 
+                        just as the creators of the language did!</p>
+                    <button type="button" class="collapsible">Show Code</button>
+                    <div class="content">
+                        <pre><code class="language-c">
+#include &lt;cs50.h&gt;
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    printf("hello, world\n");
+}
+                        </code></pre>
+                    </div>
+                </div>
+                <div class="week">
+                    <h4>Mario Less</h4>
+                    <p>The goal of the project is to create a pyramid of the selected length out of # blocks like in Mario games. 
+                        The pyramid should have spaces at the beginning of each line before the blocks to make it align to the right.</p>
+                    <button type="button" class="collapsible">Show Code</button>
+                    <div class="content">
+                        <pre><code class="language-c">
+#include &lt;stdio.h&gt;
+#include &lt;cs50.h&gt;
+
+void buildPyramid(int h);
+
+int main(void)
+{
+    //ask user for pyramid height
+    int h;
+    do
+    {
+        h = get_int("Height: ");
+    }
+    while (h < 1);
+    buildPyramid(h);
+}
+void buildPyramid (int h)
+{
+    for (int i = 0; i < h; i++)
+    {
+        for(int s = h - i; s > 1; s--)
+        {
+            printf(" ");
+        }
+        for(int b = 0; b <= i; b++)
+        {
+            printf("#");
+        }
+        printf("\n");
+    }
+}    
+                        </code></pre>
+                    </div>
+                </div>
+                <div class="week">
+                    <h4>Mario More</h4>
+                    <p>This version of Mario should print a pyramid of the selected length with a mirrored pyramid 
+                        back to back with a space between the two creating a peak in the middle.</p>
+                    <button type="button" class="collapsible">Show Code</button>
+                    <div class="content">
+                        <pre><code class="language-c">
+#include &lt;stdio.h&gt;
+#include &lt;cs50.h&gt;
+
+void buildPyramid(int h);
+
+int main(void)
+{
+    int h;
+    do
+    {
+        h = get_int("Height: ");
+    }
+    while (h < 1);
+    buildPyramid(h);
+}
+void buildPyramid (int h)
+{
+    for (int i = 0; i < h; i++)
+    {
+        for(int s = h - i; s > 1; s--)
+        {
+            printf(" ");
+        }
+        for(int b = 0; b <= i; b++)
+        {
+            printf("#");
+        }
+        printf("\n");
+    }
+}
+                        </code></pre>
+                    </div>
+                </div>
+                <div class="week">
+                    <h4>Cash</h4>
+                    <p>The purpose of cash is to figure out how many coins are required to return a certain amount of change</p>
+                    <button type="button" class="collapsible">Show Code</button>
+                    <div class="content">
+                        <pre><code class="language-c">
+#include &lt;cs50.h&gt;
+#include &lt;stdio.h&gt;
+
+int calculate_change(int cents);
+
+int main(void)
+{
+    int cents;
+    do
+    {
+        cents = get_int("Change owed in cents?: ");
+    }
+    while (cents < 0);
+    calculate_change(cents);
+}
+int calculate_change(int cents)
+{
+    // update math loop below to next index in array
+    int change = 0;
+    int coins[] = {25, 10, 5, 1};
+    for (int i = 0; i < 4; i++)
+    {
+        while (cents >= coins[i])
+        {
+            change++;
+            cents -= coins[i];
+        }
+    }
+    printf("%i\n", change);
+    return change;
+}
+                        </code></pre>
+                    </div>
+                </div>
+                <!--week 2-->
+                <div class="week">
+                    <h4>Scrabble</h4>
+                    <p>The purpose of scrabble is to create a game where two players put in words and they are scored against eachother. 
+                        Each letter has a number of points assigned to it and the program will figure out the score of each word and 
+                        return the winner with the higher score.</p>
+                    <button type="button" class="collapsible">Show Code</button>
+                    <div class="content">
+                        <pre><code class="language-c">
+#include &lt;cs50.h&gt;
+#include &lt;ctype.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+string uppercase(string word);
+int convert_points(string word);
+
+int main(void)
+{
+    string word1 = get_string("Player 1: ");
+    string word2 = get_string("Player 2: ");
+    uppercase(word1);
+    int score1 = convert_points(word1);
+    uppercase(word2);
+    int score2 = convert_points(word2);
+
+    if (score1 > score2)
+    {
+        printf("Player 1 wins!\n");
+    }
+    else if (score2 > score1)
+    {
+        printf("Player 2 wins!\n");
+    }
+    else if (score1 == score2)
+    {
+        printf("Tie!\n");
+    }
+    // just a line I like to show the points for each word
+    printf("word1: %d, word2: %d\n", score1, score2);
+}
+// spaced so the letters and points align and are easier to read together
+int points[] = { 1 , 3 , 3 , 2 , 1 , 4 , 2 , 4 , 1 , 8 , 5 , 1 , 3 , 1 , 1 , 3 , 10, 1 , 1 , 1 , 1 , 4 , 4 , 8 , 4 , 10};
+//int alpha[] ={'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+
+string uppercase(string word)
+{
+    for (int i = 0, n = strlen(word); i < n; i++)
+    {
+        if (word[i] >= 'a' && word[i] <= 'z')
+        {
+            word[i] = toupper(word[i]);
+        }
+    }
+    return word;
+}
+int convert_points(string word)
+{
+    int score = 0;
+    for (int i = 0, n = strlen(word); i < n; i++)
+    {
+        if (word[i] >= 'A' && word[i] <= 'Z')
+        {
+            score += points[word[i] - 'A'];
+        }
+    }
+    return score;
+}
+                        </code></pre>
+                    </div>
+                </div>
+                <div class="week">
+                    <h4>Readability</h4>
+                    <p>Readability takes a quote from a book and uses the Coleman-Liau index to determin the reading level of the text.</p>
+                    <button type="button" class="collapsible">Show Code</button>
+                    <div class="content">
+                        <pre><code class="language-c">
+#include &lt;cs50.h&gt;
+#include &lt;ctype.h&gt;
+#include &lt;math.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int count_letters(string text);
+int count_words(string text);
+int count_sentences(string text);
+double calculate_CLI(string text, int letters, int words, int sentences);
+int main(void)
+{
+    // Prompt the user for some text
+    string text = get_string("Book quote: ");
+    int letters = count_letters(text);
+    int words = count_words(text);
+    int sentences = count_sentences(text);
+    double CLI = calculate_CLI(text, letters, words, sentences);
+    // Print the grade level
+    // printf("Letters: %d, Words: %d, Sentences %d\n", letters, words, sentences);
+    if (CLI >= 1 && CLI <= 16)
+    {
+        printf("Grade %.0f\n", CLI);
+    }
+    else if (CLI < 1)
+    {
+        printf("Before Grade 1\n");
+    }
+    else if (CLI > 16)
+    {
+        printf("Grade 16+\n");
+    }
+}
+// Count the number of letters, words, and sentences in the text
+int count_letters(string text)
+{
+    int letters = 0;
+    for (int i = 0, n = strlen(text); i < n; i++)
+    {
+        if (text[i] >= 'A' && text[i] <= 'Z')
+        {
+            letters++;
+        }
+        if (text[i] >= 'a' && text[i] <= 'z')
+        {
+            letters++;
+        }
+    }
+    return letters;
+}
+int count_words(string text)
+{
+    int words = 0;
+    bool in_word = false;
+    for (int i = 0, n = strlen(text); i < n; i++)
+    {
+        if (isspace(text[i]))
+        {
+            if (in_word)
+            {
+                words++;
+                in_word = false;
+            }
+        }
+        else
+        {
+            in_word = true;
+        }
+    }
+    if (in_word)
+    {
+        words++;
+    }
+    return words;
+}
+int count_sentences(string text)
+{
+    int sentences = 0;
+    for (int i = 0, n = strlen(text); i < n; i++)
+    {
+        if (ispunct(text[i]) && (text[i] == '!' || text[i] == '.' || text[i] == '?'))
+        {
+            sentences++;
+        }
+    }
+    return sentences;
+}
+double calculate_CLI(string text, int letters, int words, int sentences)
+{
+    // L is the average number of letters per 100 words in the text,
+    double L = ((double) letters / words) * 100;
+    // S is the average number of sentences per 100 words in the text.
+    double S = ((double) sentences / words) * 100;
+    // Compute the Coleman-Liau index formula index = 0.0588 * L - 0.296 * S - 15.8
+    // round to nearest grade
+    double index = round(0.0588 * L - 0.296 * S - 15.8);
+    return index;
+}
+                        </code></pre>
+                    </div>
+                </div>
+                <div class="week">
+                    <h4>Caesar</h4>
+                    <p>This uses a Caesar Cypher to encode text. The first entry is a number to shift letters by and the second 
+                        input is the text to encode.</p>
+                    <button type="button" class="collapsible">Show Code</button>
+                    <div class="content">
+                        <pre><code class="language-c">
+#include &lt;cs50.h&gt;
+#include &lt;ctype.h&gt;
+#include &lt;math.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+string encrypt_text(int k, string plain);
+// make sure program runs with only 1 command line argument
+int main(int argc, string argv[])
+{
+    if (argc == 2)
+    {
+        for (int i = 0, n = strlen(argv[1]); i < n; i++)
+        {
+            // checks if argv is not a digit
+            if (!isdigit(argv[1][i]))
+            {
+                printf("Usage: ./caesar key\n");
+                return 1;
+            }
+        }
+        // checks if argv is positive
+        int k = atoi(argv[1]);
+        if (k > 0)
+        {
+            // Prompt user for plaintext
+            string plain = get_string("plaintext: ");
+            string cipher = encrypt_text(k, plain);
+            printf("ciphertext: %s\n", cipher);
+        }
+        else
+        {
+            printf("Usage: ./caesar key\n");
+            return 1;
+        }
+    }
+    else
+    {
+        printf("Error No Key Argument\n");
+        return 1;
+    }
+}
+string encrypt_text(int k, string plain)
+{
+    // For each character in the plaintext:
+    // char *cypher = malloc((strlen(plain) + 1) * sizeof(char));
+    char *cipher = malloc((strlen(plain) + 1) * sizeof(char));
+    for (int i = 0, n = strlen(plain); i < n; i++)
+    {
+        // Rotate the character if it's a letter
+        if (plain[i] >= 'a' && plain[i] <= 'z')
+        {
+            cipher[i] = (((plain[i] - 'a') + k) % 26) + 'a';
+        }
+        else if (plain[i] >= 'A' && plain[i] <= 'Z')
+        {
+            cipher[i] = (((plain[i] - 'A') + k) % 26) + 'A';
+        }
+        else
+        {
+            cipher[i] = plain[i];
+        }
+    }
+    return cipher;
+}
+                        </code></pre>
+                    </div>
+                </div>
+                <!--week 3-->
+                <div class="week">
+                    <h4>Plurality</h4>
+                    <p>Plurality runs an election run off</p>
+                    <button type="button" class="collapsible">Show Code</button>
+                    <div class="content">
+                        <pre><code class="language-c">
+#include &lt;cs50.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+// Max number of candidates
+#define MAX 9
+
+// Candidates have name and vote count
+typedef struct
+{
+    string name;
+    int votes;
+} candidate;
+
+// Array of candidates
+candidate candidates[MAX];
+
+// Number of candidates
+int candidate_count;
+
+// Function prototypes
+bool vote(string name);
+void print_winner(void);
+
+int main(int argc, string argv[])
+{
+    // Check for invalid usage
+    if (argc < 2)
+    {
+        printf("Usage: plurality [candidate ...]\n");
+        return 1;
+    }
+
+    // Populate array of candidates
+    candidate_count = argc - 1;
+    if (candidate_count > MAX)
+    {
+        printf("Maximum number of candidates is %i\n", MAX);
+        return 2;
+    }
+    for (int i = 0; i < candidate_count; i++)
+    {
+        candidates[i].name = argv[i + 1];
+        candidates[i].votes = 0;
+    }
+
+    int voter_count = get_int("Number of voters: ");
+
+    // Loop over all voters
+    for (int i = 0; i < voter_count; i++)
+    {
+        string name = get_string("Vote: ");
+
+        // Check for invalid vote
+        if (!vote(name))
+        {
+            printf("Invalid vote.\n");
+        }
+    }
+
+    // Display winner of election
+    print_winner();
+}
+
+// Update vote totals given a new vote
+bool vote(string name)
+// TODO
+{
+    // Iterate over each candidate
+    for (int i = 0; i < candidate_count; i++)
+    {
+        // Check if candidate's name matches given name
+        if (strcmp(name, candidates[i].name) == 0)
+        {
+            // If yes, increment candidate's votes and return true
+            candidates[i].votes += 1;
+            return true;
+        }
+        // If no match, return false
+    }
+    return false;
+}
+// Print the winner (or winners) of the election
+void print_winner(void)
+{
+    int highest_vote = 0;
+    // Find the maximum number of votes
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (candidates[i].votes > highest_vote)
+        {
+            highest_vote = candidates[i].votes;
+        }
+    }
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (candidates[i].votes == highest_vote)
+        {
+            printf("%s\n", candidates[i].name);
+        }
+    }
+    // Print the candidate (or candidates) with maximum votes
+    return;
+}
+                        </code></pre>
+                    </div>
+                </div>
+                <!--Week 5-->
+                <div class="week">
+                    <h4>Inheritance</h4>
+                    <p>Inheritance creates a randomly generated family tree of blood types for 3 generations.</p>
+                    <button type="button" class="collapsible">Show Code</button>
+                    <div class="content">
+                        <pre><code class="language-c">
+#include &lt;stdbool.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+
+typedef struct person
+{
+    struct person *parents[2];
+    char alleles[2];
+} person;
+
+const int GENERATIONS = 3;
+const int INDENT_LENGTH = 4;
+
+person *create_family(int generations);
+void print_family(person *p, int generation);
+void free_family(person *p);
+char random_allele();
+
+int main(void)
+{
+    // Seed random number generator
+    srand(time(0));
+
+    // Create a new family with three generations
+    person *p = create_family(GENERATIONS);
+
+    // Print family tree of blood types
+    print_family(p, 0);
+
+    // Free memory
+    free_family(p);
+}
+// Create a new individual with `generations`
+person *create_family(int generations)
+{
+    // Allocate memory for new person
+    person *p = malloc(sizeof(person));
+
+    // If there are still generations left to create
+    if (generations > 1)
+    {
+        // Create two new parents for current person by recursively calling create_family
+        person *parent0 = create_family(generations - 1);
+        person *parent1 = create_family(generations - 1);
+
+        // Set parent pointers for current person
+        p->parents[0] = parent0;
+        p->parents[1] = parent1;
+        // Randomly assign current person's alleles based on the alleles of their parents
+        p->alleles[0] = parent0->alleles[rand() % 2];
+        p->alleles[1] = parent1->alleles[rand() % 2];
+    }
+    // If there are no generations left to create
+    else
+    {
+        // Set parent pointers to NULL
+        p->parents[0] = NULL;
+        p->parents[1] = NULL;
+        //Randomly assign alleles
+        p->alleles[0] = random_allele();
+        p->alleles[1] = random_allele();
+    }
+    // Return newly created person
+    return p;
+}
+// Free `p` and all ancestors of `p`.
+void free_family(person *p)
+{
+    // Handle base case
+    if (p == NULL)
+    {
+        return;
+    }
+    // Free parents recursively
+    free_family(p->parents[0]);
+    free_family(p->parents[1]);
+
+    // Free child
+    free(p);
+}
+// Print each family member and their alleles.
+void print_family(person *p, int generation)
+{
+    // Handle base case
+    if (p == NULL)
+    {
+        return;
+    }
+    // Print indentation
+    for (int i = 0; i < generation * INDENT_LENGTH; i++)
+    {
+        printf(" ");
+    }
+    // Print person
+    if (generation == 0)
+    {
+        printf("Child (Generation %i): blood type %c%c\n", generation, p->alleles[0], p->alleles[1]);
+    }
+    else if (generation == 1)
+    {
+        printf("Parent (Generation %i): blood type %c%c\n", generation, p->alleles[0], p->alleles[1]);
+    }
+    else
+    {
+        for (int i = 0; i < generation - 2; i++)
+        {
+            printf("Great-");
+        }
+        printf("Grandparent (Generation %i): blood type %c%c\n", generation, p->alleles[0], p->alleles[1]);
+    }
+    // Print parents of current generation
+    print_family(p->parents[0], generation + 1);
+    print_family(p->parents[1], generation + 1);
+}
+// Randomly chooses a blood type allele.
+char random_allele()
+{
+    int r = rand() % 3;
+    if (r == 0)
+    {
+        return 'A';
+    }
+    else if (r == 1)
+    {
+        return 'B';
+    }
+    else
+    {
+        return 'O';
+    }
+}
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+            <div class="section">
+                <h3>Week 6: Python</h3>
+                <div class="week">
+                    <h4>Hello, Mario, Cash, Readability Revisited</h4>
+                    <p>In week 6 we started Python by revisiting programs we wrote in C and rewriting them in Python to see how the 
+                        languages resembled each other and differed. Below is the Mario and Readability Revisited as an example before 
+                        moving into the new projects</p>
+                        <h4>Mario Revisited</h4>
+                        <button type="button" class="collapsible">Show Code</button>
+                        <div class="content">
+                            <pre><code class="language-c">
+from cs50 import get_int
+# use int to get height of pyramid 1-8
+
+def main():
+height = get_height()
+for i in range(height):
+    for j in range(1):
+        print(" " * (height-i-1) + "#" * (i+1) + "  " + "#" * (i+1), end="")
+    print()
+
+def get_height():
+while True:
+    n = get_int("Height: ")
+    if n > 0 and n < 9:
+        return n
+
+main()
+                            </code></pre>
+                        </div>
+                        <h4>Readability Revisited</h4>
+                        <button type="button" class="collapsible">Show Code</button>
+                        <div class="content">
+                            <pre><code class="language-c">
+    from cs50 import get_string
+
+    def main():
+    text = get_text()
+    letters = letter_count(text)
+    words = word_count(text)
+    sentences = sentence_count(text)
+    L = (letters / words) * 100
+    S = (sentences / words) * 100
+
+    index = round(0.0588 * L - 0.296 * S - 15.8)
+
+    if index >= 1 and index <= 16:
+        print(f"Grade {index}")
+    elif index < 1:
+        print("Before Grade 1")
+    else:
+        print("Grade 16+")
+
+    def get_text():
+    return get_string("Book Quote: ")
+
+    def letter_count(text):
+    letters = 0
+    for i in text:
+        if i.isalpha():
+            letters += 1
+    return letters
+
+    def word_count(text):
+    words = 1
+    for i in text:
+        if i.isspace():
+            words += 1
+    return words
+
+    def sentence_count(text):
+    sentences = 0
+    for i in text:
+        if i in ['!', '.', '?']:
+            sentences += 1
+    return sentences
+
+    main() 
+                            </code></pre>
+                    </div>
+                </div>
+                <div class="week">
+                    <!-- MovE TO CODECADEMY section-->
+                    <h4>Credit</h4>
+                    <p>This project checks the validity of a credit card and determines the company that issues them. This project 
+                        came up earlier in CS50 and I struggled to understand how to solve it. While taking CodeCademy's full stack 
+                        course the question came up again during the JavaScript course and I found that I was able to solve it!</p>
+                    <button type="button" class="collapsible">Show Code</button>
+                    <div class="content">
+                        <pre><code class="language-c">
+// All valid credit card numbers
+const valid1 = [4, 5, 3, 9, 6, 7, 7, 9, 0, 8, 0, 1, 6, 8, 0, 8];
+const valid2 = [5, 5, 3, 5, 7, 6, 6, 7, 6, 8, 7, 5, 1, 4, 3, 9];
+const valid3 = [3, 7, 1, 6, 1, 2, 0, 1, 9, 9, 8, 5, 2, 3, 6];
+
+// All invalid credit card numbers
+const invalid1 = [4, 5, 3, 2, 7, 7, 8, 7, 7, 1, 0, 9, 1, 7, 9, 5];
+const invalid2 = [5, 7, 9, 5, 5, 9, 3, 3, 9, 2, 1, 3, 4, 6, 4, 3];
+const invalid3 = [3, 7, 5, 7, 9, 6, 0, 8, 4, 4, 5, 9, 9, 1, 4];
+
+// Can be either valid or invalid
+const mystery1 = [3, 4, 4, 8, 0, 1, 9, 6, 8, 3, 0, 5, 4, 1, 4];
+const mystery2 = [5, 4, 6, 6, 1, 0, 0, 8, 6, 1, 6, 2, 0, 2, 3, 9];
+const mystery3 = [6, 0, 1, 1, 3, 7, 7, 0, 2, 0, 9, 6, 2, 6, 5, 6, 2, 0, 3];
+
+// An array of all the arrays above
+const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, invalid3, invalid4, invalid5, mystery1, mystery2, mystery3, mystery4, mystery5];
+
+function validateCred(arr) {
+  let newNum = [];
+ 
+  for (let i = arr.length - 2; i >= 0; i-=2) {
+      let step1 = arr[i] *2;
+      if (step1 > 9) {
+        let newNumber = step1 - 9;
+        newNum.push(newNumber)
+      } else {newNum.push(step1);
+      }
+  } for (let j = arr.length - 1; j >= 0; j-=2) {
+      let step2 = arr[j];
+      newNum.push(step2);
+    } //console.log('newNum ' + newNum);
+let newSum = newNum.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+
+let newMod = newSum % 10; 
+//console.log('newMod ' + newMod);
+if (newMod === 0) {
+  return true;
+} else {
+  return false;
+}
+}
+
+function findInvalidCards(arr) {
+  let invalidArray = [];
+  for (let i = 0; i < arr.length; i++) {
+    let invalidFound = validateCred(arr[i]);
+    if (invalidFound === false) { // Use === for comparison
+      invalidArray.push(arr[i]); // Correctly add invalid cards to the array
+    }
+  }
+  return invalidArray;
+}
+
+function idInvalidCardCompanies(arr) {
+  let cardId = new Set();
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i][0] === 3) {
+      cardId.add('Amex');
+    } else  if (arr[i][0] === 4) {
+      cardId.add('Visa');
+    } else  if (arr[i][0] === 5) {
+      cardId.add('Mastercard');
+    } else  if (arr[i][0] === 6) {
+      cardId.add('Discover');
+    } else {
+      cardId.add('Company not found.');
+    }
+  } return [...cardId];
+}
+
+const array = [6, 5, 5];
+
+console.log(findInvalidCards(batch));
+console.log(idInvalidCardCompanies(batch));                       
+                        </code></pre>
+                    </div>
+                </div>
+                <div class="week">
+                     <!-- MovE TO CODECADEMY section-->
+                    <h4>DNA</h4>
+                    <p>This program is designed to create ramdomized dna for a made up creature and then mutate it. 
+                        It then adds those to a list of those likely to survive and also create the matching strand.</p>
+                    <button type="button" class="collapsible">Show Code</button>
+                    <div class="content">
+                        <pre><code class="language-c">
+// Returns a random DNA base
+const returnRandBase = () => {
+    const dnaBases = ['A', 'T', 'C', 'G']
+    return dnaBases[Math.floor(Math.random() * 4)] 
+}
+
+// Returns a random single strand of DNA containing 15 bases
+const mockUpStrand = () => {
+    const newStrand = []
+    for (let i = 0; i < 15; i++) {
+    newStrand.push(returnRandBase())
+    }
+    return newStrand
+}
+
+pAequorFactory = (specimenNum, dna) => {
+    return {
+    specimenNum: specimenNum,
+    dna: dna, 
+    mutate() {
+        let randGene = Math.floor(Math.random() * this.dna.length); //picks a strand to mutate from the current strand
+        let newMutation = returnRandBase(); //get a new gene
+        while (this.dna[randGene] === newMutation) {
+        newMutation = returnRandBase(); //compare random strand to new gene until they dont match.
+        }
+        this.dna[randGene] = newMutation;
+        return this.dna; // assing new gene to previous 
+    },
+    compareDNA(obj) {
+        let matchFound = 0;
+        for (let i=0; i< this.dna.length; i++) {
+        if (this.dna[i] === obj.dna[i]) {
+            matchFound++;
+        }
+        } let percentMatch = matchFound/this.dna.length*100;
+        console.log(`${this.specimenNum} and ${obj.specimenNum} have ${percentMatch.toFixed(2)}% DNA  in common`);
+    },
+    willLikelySurvive() {
+        let cG = 0;
+        for(let i=0; i< this.dna.length; i++) {
+        if (this.dna[i] === 'C' || this.dna[i === 'G']) {
+            cG++;
+        }
+        } let liklihood = cG / this.dna.length * 100;
+        if (liklihood >= 60) {
+        
+        return true;
+        } else {
+        
+        return false;
+        }
+    },
+    matchingStrand() {
+        let strand = [];
+        for (let i = 0; i < this.dna.length; i++) {
+        if (this.dna[i] === 'A') {
+            strand.push('T');
+        } else if (this.dna[i] === 'T') {
+            strand.push('A');
+        } else if (this.dna[i] === 'C') {
+            strand.push('G');
+        } else if (this.dna[i] === 'G') {
+            strand.push('C');
+        } 
+        } return strand;
+    },
+    }
+}
+
+const survivingPAequors = [];
+let specimenNum = 1;
+while (survivingPAequors.length < 30) {
+    const newPAequor = pAequorFactory(specimenNum, mockUpStrand());
+    if (newPAequor.willLikelySurvive()) {
+    survivingPAequors.push(newPAequor);
+    }
+    specimenNum++;
+}
+
+const specimen1 = pAequorFactory(1, mockUpStrand());
+//const specimen2 = pAequorFactory(2, mockUpStrand());
+console.log(specimen1);
+console.log(specimen1.matchingStrand());                        
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+            <!--week 8-->
+            <div class="section">
+                <h3>Week 8: HTML, CSS, JavaScript</h3>
+                <div class="week">
+                    <h4>Trivia</h4>
+                    <p>This homeowrk was to take a basic HTML page that was predesigned and add logic to the page to create a two question trivia game.</p>
+                    <a href="trivia.html" id="trivia"><button type="button" id="htmlbtn">Visit Trivia Page</button></a>
+                    
+                </div>
+                <div class="week">
+                    <h4>Homepage</h4>
+                    <p>The Homepage assignment was to create our own website from scratch. The contnet should reflect the maker 
+                        and their interests and include a contact page. This websites contct page functions and sends the email 
+                        contact page to a real email.</p>
+                        <a href="https://emmalani3.github.io/homepage/index.html" id="trivia"><button type="button" id="htmlbtn">Visit Homepage</button></a>
+                </div>
+            </div>
+                <!--week 9-->
+            <div class="section">
+                    <h3>Week 9: Flask</h3>
+                <div class="week">
+                    <h4>Birthday</h4>
+                    <p>This project was a partial built website that allows users to add people and their birthdays to a database 
+                        as well ad edit or remove the birthday. The outline was created by the CS50 staff and students had to fill 
+                        in the code to make it function and change the styling. This project is built with FLask, HTML, CSS, SQL database, and Python for most of the logic.</p>
+                </div>
+                <div class="week">
+                    <h4>Finance</h4>
+                    <p>This project was also a partial built website that is intended to mimic a stock portfolio that can buy and 
+                        sell and display a users portfolio of mock stocks using real world stock prices. The outline was created by 
+                        the CS50 staff and students had to fill in the code to make it function. This project is built with FLask, HTML, CSS, 
+                        SQL database, and JavaScript (in layout.html) and Python for most of the logic.</p>
+                </div>
+            </div>
+            <div class="section" id="ip">
+                    <h2>Independent Projects</h2>
+                <div class="week">
+                    <h4>Envlope Address PDF</h4>
+                    <p>I run a business and send out thank you cards each year at the end of the year. Instead of hand 
+                        addressing each envelope I took my client list off of my booking site as a CSV file and wrote a program 
+                        to format each envelope with proper addresses for each client in the file. This project was assisted by Chat GPT.</p>
+                    <button type="button" class="collapsible">Show Code</button>
+                    <div class="content">
+                        <pre><code class="language-c">
+                            import csv
+from fpdf import FPDF, XPos, YPos
+
+#create a PDF
+class PDF(FPDF):
+    def header(you):
+        you.set_font('times', '', 14)
+        you.cell(5, .3, 'Your Name', new_y=YPos.NEXT, new_x=XPos.LMARGIN)
+        you.cell(5, .3, 'Your Street Address, State ID, ZipCode', new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+        you.ln(.5)
+
+#Layout('P', 'L')
+#units ('mm', 'cm', 'in')
+#format ('A3', 'A4' (default), 'A5', (4.1,9.5))
+pdf = PDF('L', 'in', (4.1,9.5)) #portrait mode, in inches, 4x9
+
+pdf.set_auto_page_break(auto=True, margin = 1.5)
+pdf.add_page()
+pdf.set_font('times', '', 18) #font normal size 18
+
+with open('clients24.csv', 'r') as csv_file:
+    csv_reader = csv.reader(csv_file)
+    for line in csv_reader:
+        name =  f"{line[0]} {' '} {line[1]}"
+        address1 = f"{line[2]}"
+        address2 = f"{line[3]} {', '} {line[4]} {' '} {line[5]}"
+        pdf.cell(0, .3, name.encode('latin-1', 'replace').decode('latin-1'), new_x=XPos.LEFT, new_y=YPos.NEXT, align ='C')
+        pdf.cell(0, .3, address1.encode('latin-1', 'replace').decode('latin-1'), new_x=XPos.LEFT, new_y=YPos.NEXT, align ='C')
+        pdf.cell(0, .3, address2.encode('latin-1', 'replace').decode('latin-1'), new_x=XPos.LEFT, new_y=YPos.NEXT, align ='C')
+                #Set auto page break
+        #pdf.set_auto_page_break(auto=True, margin = .5)
+
+pdf.output('pdf_clients24.pdf') #name of pdf
+                        </code></pre>
+                    </div>
+                </div>
+                
+                <div class="week">
+                    <h4>Fubar</h4>
+                    <p>FuBar is a common coding challenge for new programmers. The idea is that it prints numbers from 1-15 and 
+                        replaces any number divisibe by 3 with Fu and any number divisible by 5 with Bar. If any number is divisible 
+                        by both 3 and 5 it prints Fubar.</p>
+                    <button type="button" class="collapsible">Show Code</button>
+                    <div class="content">
+                        <pre><code class="language-python">
+x = 1
+while x < 16:
+    if int(x)%5 == 0 and int(x)%3 == 0:
+        print("Fubar")
+    elif int(x)%3 ==0:
+        print("Fu")
+    elif int(x)%5 ==0:
+        print("Bar")
+    else:
+        print(x)
+    x += 1
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+            <div class="section" id="cc">
+                <h2>Codecademy Full Stack Course</h2>
+                <div class="description">
+                    <p>Codecademy is an online code learning website with different classes to learn different languages and skills. 
+                        I am taking the fullstack development course to learn how to make apps for phones and the web. The classes 
+                        includes many of the topics that CS50 covered and includes JavaScript, REact, GitHub, and more.</p>
+                    </div>
+                <div class="week">
+                    <h4>Cheat Sheet</h4>
+                    <p>The purpose of this was to practice designing tables in HTML and CSS. The content of the tables 
+                        are full of notes about the content covered in the class.</p>
+                    <a href="https://emmalani3.github.io/homework/CheatSheet/" id="cheatsheet"><button type="button" id="htmlbtn">Visit Cheat Sheet</button></a>
+                </div>
+                <div class="week">
+                    <h4>Web Design System</h4>
+                    <p>This assignment is based on creating a design outline for a project. I used my current project Polypair 
+                            and created a design guide for the website I plan to build.</p>
+                    <a href="https://emmalani3.github.io/homework/WebDesignSystem/" id="webdesign"><button type="button" id="htmlbtn">Visit Web Design System</button></a>
+                </div>
+                <div class="week">
+                    <h4>Responsive Club</h4>
+                    <p>This project was designed to practice resizing a website using @media in CSS to make it responsive to 
+                        different screen sizes. I developed a website for a club called Whiting's Ceramics Club that talks 
+                        about the benefits of joining the group. It also displays he art of members in a gallery on the site.</p>
+                    <a href="https://emmalani3.github.io/homework/ResponsiveClub/" id="club"><button type="button" id="htmlbtn">Visit Whiting's Ceramics Club</button></a>
+                </div>
+                <div class="week">
+                    <h4>FlexBox</h4>
+                    <p>This project was designed to practice using flexboxes in the design of a website. This website is a 
+                        mock site of thte apps I want to write with my coding knowledge.</p>
+                    <a href="https://emmalani3.github.io/homework/flexbox/" id="flexbox"><button type="button" id="htmlbtn">Visit App Practice</button></a>
+                </div>
+                <div class="week">
+                    <h4>Sentence</h4>
+                    <p>This project was designed to create a sentence using JavaScript. It required a minimum of 3 randomized
+                         inputs. This code outputs a book idea for someone to write about. I wanted to connect it to a 
+                         HTML website so others could use it without a terminal.</p>
+                    <button type="button" class="collapsible">Show Code</button>
+                    <div class="content">
+                        <pre><code class="JavaScript">
+    let genre = ['action', 'adventure', 'comedy', 'crime thriller', 'mystery', 'fantasy', 
+        'historical fiction', 'horror', 'romance', 'science fiction', 'cyberpunk', 'romance'];
+    let gender = ['woman', 'girl', 'man', 'boy'];
+    let names = ['Lena', 'Kai', 'Amara', 'Jasper', 'Zoe', 'Milo', 'Sage', 'Nova', 'Elio', 'Rhea',
+        'Aria', 'Theo', 'Isla', 'Ezra', 'Luna', 'Orion', 'Freya', 'Leo', 'Nina', 'Rowan',
+        'Ivy', 'Silas', 'Ayla', 'Nico', 'Wren', 'Juno', 'Felix', 'Mira', 'Asher', 'Skye',
+        'Eden', 'Atlas', 'Maeve', 'Rory', 'Dahlia', 'Cassian', 'Lyra', 'Kieran', 'Phoebe', 'Bodhi',
+        'Cleo', 'Rafael', 'Talia', 'Hugo', 'Selene', 'Lucian', 'Indira', 'Caius', 'Zara', 'Finn'];
+    let forces = ['An evil tyrant or oppressive ruler', 'A corrupt system or government',
+        'Time', 'Nature', 'A powerful monster or creature', 'Loss or grief',
+        'Societal norms or expectations', 'Addiction or obsession',
+        'Destiny or prophecy', 'Technology', 'artificial intelligence',
+        'A mysterious illness or curse', 'The unknown', 'The void', 'evil',
+        'love', 'humanity', 'the world', 'themselves', 'their inner demons', 'bureaucracy', 
+        'their evil nemissis that was previously their best friend', 'their evil nemissis', 
+        'mysterious circumstances', 'invisible ninjas'];
+
+    function randomizeArr(arr) {
+        const randNum = Math.floor(Math.random() * arr.length);
+        let randArr = arr[randNum];
+        return randArr;
+    } 
+
+    let newGenre = randomizeArr(genre);
+    let newGender = randomizeArr(gender);
+    let newName = randomizeArr(names);
+    let newForces = randomizeArr(forces);
+
+    console.log(`You should write a ${newGenre} story about a ${newGender} named ${newName} 
+        that fights the forces of ${newForces} and Saves the day!`)
+                        </code></pre>
+                    </div>
+                    <a href="" id="sentence"><button type="button" id="htmlbtn">Does not exist yet</button></a>
+                </div>
+                <div class="week">
+                    <h4>Whats for Dinner</h4>
+                    <p>This little website is a fun project I made to display connecting JavaScript to a HTML website. 
+                        I had missread the instructions to create a "portfolio Project" and made this page before realizing 
+                        that the project was supposed to be a portfolio linked to other projects.</p>
+                        <a href="https://emmalani3.github.io/portfolioProject/" id="dinner"><button type="button" id="htmlbtn">Visit Whats For Dinner?</button></a>
+                </div>
+        </div>
+
+        </main>
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+
+            for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                content.style.display = "none";
+                } else {
+                content.style.display = "block";
+                }
+            });
+            }
+        </script>
+    </body>
+    <footer>
+        <p>&#169; Emma Lani Bufalini 2025</p>
+        <a href="mailto:emma.bufalini@gmail.com">Emma.Bufalini@gmail.com</a>
+    </footer>
+</html>

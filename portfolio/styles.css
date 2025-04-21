@@ -1,0 +1,212 @@
+* {
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+}
+header {
+    background-color: #9e0099;
+    padding: 10px 60px;
+    text-align: center;
+    align-content: center;
+    color: white;
+}
+
+nav {
+    list-style-type: none;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;    
+}
+nav a {
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+}
+nav a:hover {
+    color: orange;
+}
+li {
+    margin: 10px;
+}
+body {
+    background-color: lightgray;
+}
+
+main {
+    margin:40px;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+#email,
+h2 {
+    font-size: 2rem;
+    padding: 10px;
+    background-color: #9e0099;
+    width: 100%;
+    color: white;
+
+}
+
+h3 {
+    font-size:1.5rem;
+    padding: 10px;
+    width: 100%;
+    background-color: #c873c5;
+
+}
+
+code {
+    background-color: white;
+    border: 2px darkslategrey solid;
+    font-size: 10px;
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    
+}
+pre {
+    overflow: scroll;
+}
+
+#playRules {
+    margin-left: 20px;
+}
+/* Style the button that is used to open and close the collapsible content */
+/*.collapsible {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 70%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 15px;
+}*/
+#htmlbtn,
+#submit,
+.collapsible  {
+    border: 2px solid #9e0099;
+    border-radius: 5px;
+    color: #F8F8F8;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2), 0px -2px 2px rgba(255, 255, 255, 0.5) inset, 0 2px 2px rgba(255, 255, 255, 0.8) inset;
+    background: linear-gradient(#c873c5, #c873c5);
+    text-shadow: 0 -2px #9e0099;
+    text-align: center;
+    width: 70%;
+    padding: 18px;
+    margin: 5px;
+}
+#htmlbtn:hover,
+#submit:hover,
+.collapsible:hover {
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1), 0px -2px 2px rgba(255, 255, 255, 0.25) inset, 0 2px 2px rgba(255, 255, 255, 0.4) inset;
+    background: #c873c5;
+    background: linear-gradient(#c873c5, #9e0099);
+    border-color: #3c003a;
+}
+#htmlbtn:active,
+#submit:active,
+.collapsible:active {
+    margin-top: 2px;
+    margin-bottom: -2px;
+    box-shadow: 0px 2px 2px rgba(63, 63, 63, 0.1), 0px -2px 2px rgba(255, 255, 255, 0.25) inset, 0 2px 2px rgba(255, 255, 255, 0.4) inset;
+    background: #9e0099;
+    background: linear-gradient(#9e0099, #c873c5);
+}
+
+.section {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px 0;
+    justify-content: center;
+    background-color: white;
+}
+.description {
+    padding: 10px 30px;
+}
+.week {
+    width: 30%;
+    padding: 10px;
+    border: 2px solid darkslategray;
+    margin: 5px auto;
+}
+#game,
+#gamebox {
+    width:45%
+}
+#gamebox {
+    border: none;
+}
+  
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+    background-color: #ccc;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+}
+footer {
+    background-color: #9e0099;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+footer a {
+    color:white;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 1500px) {
+    #game,
+    #gamebox {
+        width:90%
+    }
+    .week {
+        width:45%;
+    }
+}
+@media screen and (max-width:1300px) {
+    .week {
+        width:90%;
+    }
+}
+@media screen and (max-width: 1000px)  {
+    .week {
+        width:90%;
+    }
+    nav a {
+        font-size: 1rem;
+    }
+}
+@media screen and (max-width: 700px) {
+    h1 {
+        font-size: 2rem;
+    }
+    iframe {
+        height:315px;
+        width:400px;
+    
+    }
+    nav a {
+        font-size: .5;
+    }
+}
+@media screen and (max-width: 550px) {
+    iframe {
+        height:215px;
+        width:300px;
+    
+    }
+}
