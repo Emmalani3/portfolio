@@ -210,3 +210,11 @@ footer a {
     
     }
 }
+@media screen and (max-width: 426px)  {
+    nav a {
+        overflow: wrap;
+    }
+    header {
+        background-color: turquoise;
+    }
+}
