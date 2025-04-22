@@ -10,6 +10,10 @@ header {
     align-content: center;
     color: white;
 }
+header p {
+    width: 50%;
+    margin: 0 auto;
+}
 
 nav {
     list-style-type: none;
@@ -189,6 +193,9 @@ footer a {
     nav a {
         font-size: 1rem;
     }
+    header p {
+        width: 70%;
+    }
 }
 @media screen and (max-width: 700px) {
     h1 {
@@ -202,6 +209,7 @@ footer a {
     nav a {
         font-size: .5;
     }
+    
 }
 @media screen and (max-width: 550px) {
     iframe {
@@ -213,5 +221,5 @@ footer a {
         flex-wrap: wrap;
         margin: 5px;
     }
+    
 }
-
